@@ -1,5 +1,6 @@
 # clickhouse-markdown
 
+```
 // set database
 USE DATABASE_NAME
 
@@ -26,3 +27,4 @@ OPTIMIZE TABLE TABLE_NAME DEDUPLICATE
 
 // rename table
 RENAME TABLE TABLE_NAME TO NEW_TABLE_NAME on cluster '{cluster}';
+```
