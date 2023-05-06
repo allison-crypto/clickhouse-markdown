@@ -23,7 +23,7 @@ drop table if exists DATABASE_NAME.TABLE_NAME on cluster '{cluster}';
 drop view if exists DATABASE_NAME.VIEW_NAME on cluster '{cluster}';
 
 // optimize
-OPTIMIZE TABLE TABLE_NAME DEDUPLICATE
+OPTIMIZE TABLE TABLE_NAME final DEDUPLICATE
 
 // rename table
 RENAME TABLE TABLE_NAME TO NEW_TABLE_NAME on cluster '{cluster}';
