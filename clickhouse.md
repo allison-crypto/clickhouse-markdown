@@ -18,6 +18,9 @@ WHERE is_done = 0 and database='DATABASE_NAME'
 // get partition list
 SELECT partition FROM system.parts WHERE database='DATABASE_NAME' AND table='TABLE_NAME' GROUP BY partition
 
+// select with partition
+SELECT  * FROM DATABASE_NAME.TABLE_NAME WHERE (_partition_value.1) = 'PARTITION'
+
 // drop table/view
 drop table if exists DATABASE_NAME.TABLE_NAME on cluster '{cluster}';
 drop view if exists DATABASE_NAME.VIEW_NAME on cluster '{cluster}';
