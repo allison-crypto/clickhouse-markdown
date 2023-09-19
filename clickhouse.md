@@ -10,10 +10,13 @@ SELECT name from system.tables where database='DATABASE_NAME'
 // delete (background job)
 ALTER TABLE TABLE_NAME on CLUSTER '{cluster}' DELETE where xxx
 
-// check unfinish async func
+// check mutations (unfinish async func)
 SELECT table, command, is_done, latest_failed_part, latest_fail_time, latest_fail_reason
 FROM system.mutations
 WHERE is_done = 0 and database='DATABASE_NAME'
+
+// kill mutation
+KILL MUTATION on CLUSTER '{cluster}' WHERE database = 'DATABASE_NAME' AND table = 'TABLE_NAME' AND mutation_id = 'MUTATION_ID'
 
 // get partition list
 SELECT partition FROM system.parts WHERE database='DATABASE_NAME' AND table='TABLE_NAME' GROUP BY partition
